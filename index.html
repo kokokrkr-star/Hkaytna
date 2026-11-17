@@ -1,0 +1,1720 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff0f5">
+<title>حكايتنا ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+:root {
+  --pink:#ec78a4;
+  --dark:#a83d69;
+  --light:#fff0f5;
+  --text:#684354;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family:Cairo,sans-serif;
+  background:linear-gradient(145deg,#fff7fa,#ffe6ef);
+  color:var(--text);
+}
+
+header {
+  text-align:center;
+  padding:22px;
+  color:var(--dark);
+  font-size:25px;
+  font-weight:800;
+}
+
+.container {
+  width:92%;
+  max-width:650px;
+  margin:auto;
+}
+
+.card {
+  background:white;
+  border-radius:23px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 7px 25px #d98aa51c;
+  border:1px solid #f9dce7;
+}
+
+.hero {
+  text-align:center;
+  background:linear-gradient(140deg,#fff,#ffeaf2);
+}
+
+.heart {
+  font-size:45px;
+  color:var(--pink);
+  animation:beat 1.5s infinite;
+}
+
+@keyframes beat {
+  50% { transform:scale(1.17); }
+}
+
+h1 { color:var(--dark); font-size:26px; }
+h2 { color:var(--dark); font-size:19px; }
+
+.subtitle,.note {
+  color:#a77d90;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.countdown {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-top:20px;
+}
+
+.time {
+  background:white;
+  border:1px solid #f5d4e0;
+  border-radius:14px;
+  padding:12px 3px;
+}
+
+.time strong {
+  display:block;
+  color:var(--dark);
+  font-size:24px;
+}
+
+.time span { font-size:12px; }
+
+.message {
+  background:#fff5f9;
+  border-radius:15px;
+  padding:17px;
+  line-height:2;
+  font-size:15px;
+}
+
+input,textarea,select {
+  width:100%;
+  padding:13px;
+  margin:7px 0;
+  border:1px solid #f1ccda;
+  border-radius:12px;
+  font-family:inherit;
+  font-size:14px;
+  outline:none;
+  background:#fff;
+  color:var(--text);
+}
+
+textarea {
+  resize:vertical;
+}
+
+input:focus,textarea:focus,select:focus {
+  border-color:var(--pink);
+}
+
+button {
+  background:var(--pink);
+  color:white;
+  border:none;
+  border-radius:12px;
+  padding:12px;
+  width:100%;
+  font-family:inherit;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:7px;
+}
+
+button:active { transform:scale(.98); }
+
+button:disabled {
+  opacity:.6;
+  cursor:not-allowed;
+}
+
+.secondary {
+  background:#fff0f5;
+  color:var(--dark);
+  border:1px solid #f1ccda;
+}
+
+.entry {
+  background:#fff7fa;
+  padding:13px;
+  border-radius:13px;
+  margin-top:10px;
+  border:1px solid #f7dce6;
+  overflow-wrap:anywhere;
+}
+
+.entry p {
+  line-height:1.9;
+  margin:5px 0;
+}
+
+.entry small {
+  display:block;
+  color:#a77d90;
+  margin-top:7px;
+  line-height:1.9;
+}
+
+.stats {
+  background:#fff1f6;
+  padding:15px;
+  border-radius:14px;
+  text-align:center;
+  margin-top:12px;
+}
+
+.stats strong {
+  display:block;
+  color:var(--dark);
+  font-size:28px;
+}
+
+footer {
+  text-align:center;
+  padding:25px;
+  color:#ad7a90;
+  font-size:13px;
+}
+
+#syncStatus {
+  overflow-wrap:anywhere;
+}
+
+/* الأمنيات */
+
+.wish-status {
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:9px;
+  font-size:12px;
+  margin-top:8px;
+  font-weight:bold;
+}
+
+.wish-pending {
+  background:#fff3cd;
+  color:#856404;
+}
+
+.wish-achieved {
+  background:#d1e7dd;
+  color:#198754;
+}
+
+.wish-not-achieved {
+  background:#f8d7da;
+  color:#b02a37;
+}
+
+.wish-actions {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.wish-actions button {
+  width:auto;
+  flex:1;
+  min-width:95px;
+  margin:0;
+  font-size:12px;
+  padding:9px 6px;
+}
+
+.wish-green { background:#198754; }
+.wish-red { background:#dc3545; }
+
+.wish-reset {
+  background:#fff0f5;
+  color:var(--dark);
+  border:1px solid #f1ccda;
+}
+
+/* الخلافات */
+
+.conflict-resolved {
+  text-decoration:line-through;
+  color:#198754;
+  opacity:.8;
+}
+
+.conflict-status {
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:9px;
+  font-size:12px;
+  margin-top:8px;
+  font-weight:bold;
+}
+
+.conflict-open {
+  background:#fff3cd;
+  color:#856404;
+}
+
+.conflict-closed {
+  background:#d1e7dd;
+  color:#198754;
+}
+
+.conflict-details {
+  line-height:2;
+  font-size:12px;
+  color:#a77d90;
+}
+
+.resolve-button {
+  background:#198754;
+}
+
+.edit-button {
+  background:#fff0f5;
+  color:var(--dark);
+  border:1px solid #f1ccda;
+}
+
+.history {
+  background:#fff;
+  border:1px dashed #e9b7cb;
+  border-radius:12px;
+  padding:12px;
+  margin-top:12px;
+}
+
+.history-title {
+  color:var(--dark);
+  font-weight:bold;
+  font-size:13px;
+}
+
+.history-item {
+  background:#fff7fa;
+  border-radius:10px;
+  padding:10px;
+  margin-top:9px;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.history-item .old-text {
+  color:#a77d90;
+}
+
+.history-item .new-text {
+  color:#198754;
+  font-weight:bold;
+}
+
+.history-item small {
+  display:block;
+  margin-top:5px;
+}
+
+/* المساحات */
+
+.room-box {
+  background:#fff7fa;
+  border:1px solid #f7dce6;
+  border-radius:14px;
+  padding:13px;
+  margin-top:12px;
+}
+
+.room-actions {
+  display:flex;
+  gap:8px;
+}
+
+.room-actions button {
+  flex:1;
+}
+
+@media(max-width:380px) {
+  .room-actions {
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>♡ حكايتنا ♡</header>
+
+<main class="container">
+
+<section class="card hero">
+  <div class="heart">♥</div>
+  <h1>كل يوم حكاية جديدة</h1>
+  <p class="subtitle">حكايتنا بدأت يوم 9 سبتمبر 2026</p>
+
+  <p class="note">
+    البداية: 09 / 09 / 2026<br>
+    موعد الأربع سنوات: 09 / 09 / 2030
+  </p>
+
+  <h2>متبقي على أربع سنوات من حكايتنا</h2>
+
+  <div class="countdown">
+    <div class="time"><strong id="years">0</strong><span>سنة</span></div>
+    <div class="time"><strong id="months">0</strong><span>شهر</span></div>
+    <div class="time"><strong id="days">0</strong><span>يوم</span></div>
+    <div class="time"><strong id="hours">0</strong><span>ساعة</span></div>
+    <div class="time"><strong id="minutes">0</strong><span>دقيقة</span></div>
+    <div class="time"><strong id="seconds">0</strong><span>ثانية</span></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>💌 رسالة اليوم</h2>
+  <div class="message" id="dailyMessage"></div>
+  <p class="note" id="messageDate"></p>
+</section>
+
+<section class="card">
+  <h2>✨ دفتر أمنياتنا</h2>
+  <p class="note">اكتب أمنيتك لتظل ذكرى جميلة بينكما.</p>
+
+  <input id="wishAuthor" placeholder="اسمك" maxlength="40">
+  <textarea id="wishText" placeholder="اكتب أمنيتك هنا..." rows="3" maxlength="2000"></textarea>
+  <button id="addWishBtn" onclick="addWish()">إضافة أمنية ❤️</button>
+
+  <div id="wishes"></div>
+</section>
+
+<section class="card">
+  <h2>🌷 سجل الخلافات</h2>
+  <p class="note">
+    سجلوا الخلافات وتابعوا تفاصيلها وتاريخ انتهائها،
+    ويمكنكم تعديل الوصف مع الاحتفاظ بسجل كامل للتعديلات.
+  </p>
+
+  <input id="conflictAuthor" placeholder="من يسجل الخلاف؟" maxlength="40">
+  <input id="conflictDate" type="datetime-local">
+  <textarea id="conflictNote" placeholder="اكتب سبب الخلاف وتفاصيله..." rows="3" maxlength="3000"></textarea>
+
+  <button id="addConflictBtn" onclick="addConflict()">تسجيل الخلاف</button>
+
+  <div class="stats">
+    <strong id="conflictCount">0</strong>
+    إجمالي الخلافات المسجلة
+  </div>
+
+  <div id="conflicts"></div>
+</section>
+
+<section class="card">
+  <h2>🔐 إدارة المساحات</h2>
+
+  <p class="note">
+    يتم حفظ رموز المساحات على هذا الجهاز.
+    يمكنك الرجوع إلى مساحة قديمة أو إدخال رمز جديد لإنشاء مساحة مستقلة.
+  </p>
+
+  <input id="roomCode" placeholder="أدخل رمز المساحة" maxlength="100">
+
+  <button id="connectBtn" onclick="connectRoom()">
+    الاتصال بالمساحة
+  </button>
+
+  <div class="room-box">
+    <h2>📚 مساحاتي المحفوظة</h2>
+    <p class="note">
+      اختر مساحة سابقة للعودة إلى بياناتها.
+    </p>
+
+    <select id="savedRooms">
+      <option value="">لا توجد مساحات محفوظة</option>
+    </select>
+
+    <div class="room-actions">
+      <button class="secondary" id="openSavedBtn" onclick="openSavedRoom()">
+        فتح المساحة المختارة
+      </button>
+
+      <button class="secondary" onclick="refreshSavedRooms()">
+        تحديث القائمة
+      </button>
+    </div>
+  </div>
+
+  <p class="note" id="syncStatus">
+    جاري تجهيز الاتصال...
+  </p>
+</section>
+
+<footer>
+  صُنعت هذه المساحة لتكون ذكرى لطيفة بينكما ❤️
+</footer>
+
+</main>
+
+<script type="module">
+
+// ========================================
+// 1. استيراد Firebase
+// ========================================
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  updateDoc,
+  onSnapshot,
+  arrayUnion,
+  runTransaction
+}
+from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+import {
+  getAuth,
+  signInAnonymously
+}
+from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+
+// ========================================
+// 2. إعدادات Firebase
+// ========================================
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAAGYpckjDBCx511hkd9tUGoabHbpmEbwU",
+  authDomain: "rahm-9124f.firebaseapp.com",
+  projectId: "rahm-9124f",
+  storageBucket: "rahm-9124f.firebasestorage.app",
+  messagingSenderId: "692828715517",
+  appId: "1:692828715517:web:ad9394f9a595dcbbbe8194",
+  measurementId: "G-QWLPZ67RT8"
+};
+
+
+// ========================================
+// 3. المتغيرات الأساسية
+// ========================================
+
+let db = null;
+let auth = null;
+let room = "";
+let unsubscribe = null;
+let connected = false;
+let connecting = false;
+
+let data = {
+  wishes: [],
+  conflicts: []
+};
+
+const $ = id => document.getElementById(id);
+
+function setStatus(message) {
+  $("syncStatus").textContent = message;
+}
+
+function normalizeData(value) {
+  return {
+    wishes: Array.isArray(value?.wishes)
+      ? value.wishes
+      : [],
+
+    conflicts: Array.isArray(value?.conflicts)
+      ? value.conflicts.map(c => ({
+          ...c,
+          status: c.status || "open",
+          endedAt: c.endedAt || null,
+          edits: Array.isArray(c.edits) ? c.edits : []
+        }))
+      : []
+  };
+}
+
+
+// ========================================
+// 4. رسائل اليوم
+// ========================================
+
+const messages = [
+  "أتمنى أن يكون يومنا مليئًا بالفرح والهدوء والنجاح. ❤️",
+  "كل يوم فرصة جديدة لنفهم بعضنا ونكون ألطف مع بعضنا. 🌷",
+  "الأمنيات الجميلة تستحق الصبر والعمل والخطوات الصغيرة. ✨",
+  "أتمنى أن تبقى بيننا دائمًا مساحة للكلام الصادق والاحترام. 💗",
+  "أجمل الذكريات نصنعها بالاهتمام والتقدير واللحظات البسيطة. 💌",
+  "لا يشترط أن نتفق في كل شيء، لكن المهم أن نحترم بعضنا. ❤️",
+  "أتمنى لك يومًا جميلًا مليئًا بالأخبار السعيدة. 🌸",
+  "كل يوم جديد يحمل فرصة لنبدأ بشكل أجمل. 💕",
+  "لا تنسَ أن تشجع نفسك وتحتفل بخطواتك الصغيرة. 🌹",
+  "الأحلام تصبح أقرب حين نعمل من أجلها. ✨"
+];
+
+function updateDailyMessage() {
+  const now = new Date();
+
+  const day = Math.floor(
+    Date.UTC(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    ) / 86400000
+  );
+
+  const index =
+    ((day % messages.length) + messages.length) % messages.length;
+
+  $("dailyMessage").textContent = messages[index];
+
+  $("messageDate").textContent =
+    now.toLocaleDateString("ar-EG", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    });
+}
+
+updateDailyMessage();
+
+
+// ========================================
+// 5. العداد التنازلي
+// ========================================
+
+function addMonthsClamped(date, months) {
+  const result = new Date(date);
+  const day = result.getDate();
+
+  result.setDate(1);
+  result.setMonth(result.getMonth() + months);
+
+  const lastDay = new Date(
+    result.getFullYear(),
+    result.getMonth() + 1,
+    0
+  ).getDate();
+
+  result.setDate(Math.min(day, lastDay));
+
+  return result;
+}
+
+function updateCountdown() {
+  const target = new Date(2030, 8, 9, 0, 0, 0);
+  const now = new Date();
+
+  if (now >= target) {
+    [
+      "years",
+      "months",
+      "days",
+      "hours",
+      "minutes",
+      "seconds"
+    ].forEach(id => {
+      $(id).textContent = "0";
+    });
+
+    return;
+  }
+
+  let years = target.getFullYear() - now.getFullYear();
+
+  let cursor = addMonthsClamped(now, years * 12);
+
+  while (cursor > target) {
+    years--;
+    cursor = addMonthsClamped(now, years * 12);
+  }
+
+  let months = 0;
+
+  while (
+    addMonthsClamped(cursor, months + 1) <= target
+  ) {
+    months++;
+  }
+
+  cursor = addMonthsClamped(cursor, months);
+
+  const diff = target - cursor;
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff % 86400000 / 3600000);
+  const minutes = Math.floor(diff % 3600000 / 60000);
+  const seconds = Math.floor(diff % 60000 / 1000);
+
+  $("years").textContent = years;
+  $("months").textContent = months;
+  $("days").textContent = days;
+  $("hours").textContent = hours;
+  $("minutes").textContent = minutes;
+  $("seconds").textContent = seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// ========================================
+// 6. إدارة التخزين المحلي والمساحات
+// ========================================
+
+const ROOMS_KEY = "loveRooms";
+const ACTIVE_ROOM_KEY = "loveRoom";
+const OLD_DATA_KEY = "loveData";
+
+function roomDataKey(code) {
+  return "loveData_" + code;
+}
+
+function getSavedRooms() {
+  try {
+    const saved = JSON.parse(
+      localStorage.getItem(ROOMS_KEY) || "[]"
+    );
+
+    return Array.isArray(saved)
+      ? saved.filter(x => typeof x === "string")
+      : [];
+
+  } catch {
+    return [];
+  }
+}
+
+function saveRoomCode(code) {
+  const rooms = getSavedRooms();
+
+  if (!rooms.includes(code)) {
+    rooms.push(code);
+  }
+
+  localStorage.setItem(
+    ROOMS_KEY,
+    JSON.stringify(rooms)
+  );
+
+  localStorage.setItem(ACTIVE_ROOM_KEY, code);
+
+  refreshSavedRooms();
+}
+
+window.refreshSavedRooms = function() {
+  const select = $("savedRooms");
+  const rooms = getSavedRooms();
+  const active = localStorage.getItem(ACTIVE_ROOM_KEY) || "";
+
+  select.replaceChildren();
+
+  if (!rooms.length) {
+    const option = document.createElement("option");
+    option.value = "";
+    option.textContent = "لا توجد مساحات محفوظة";
+    select.append(option);
+    return;
+  }
+
+  rooms.forEach(code => {
+    const option = document.createElement("option");
+
+    option.value = code;
+    option.textContent =
+      code === active
+        ? "⭐ المساحة الحالية — " + code
+        : "مساحة محفوظة — " + code;
+
+    select.append(option);
+  });
+
+  if (rooms.includes(active)) {
+    select.value = active;
+  }
+}
+
+function saveLocal() {
+  try {
+    if (!room) return;
+
+    localStorage.setItem(
+      roomDataKey(room),
+      JSON.stringify(data)
+    );
+
+  } catch (error) {
+    console.error("Local storage error:", error);
+  }
+}
+
+function loadLocalForRoom(code) {
+  try {
+    const saved = localStorage.getItem(roomDataKey(code));
+
+    if (saved) {
+      data = normalizeData(JSON.parse(saved));
+    } else {
+      data = {
+        wishes: [],
+        conflicts: []
+      };
+
+      // ترحيل بيانات النسخة القديمة لأول مساحة محفوظة
+      const oldActiveRoom = localStorage.getItem(ACTIVE_ROOM_KEY);
+
+      if (
+        code === oldActiveRoom &&
+        localStorage.getItem(OLD_DATA_KEY)
+      ) {
+        data = normalizeData(
+          JSON.parse(localStorage.getItem(OLD_DATA_KEY))
+        );
+
+        saveLocal();
+      }
+    }
+
+  } catch (error) {
+    console.error("Local data error:", error);
+
+    data = {
+      wishes: [],
+      conflicts: []
+    };
+  }
+
+  render();
+}
+
+window.openSavedRoom = function() {
+  const code = $("savedRooms").value;
+
+  if (!code) {
+    alert("اختر مساحة محفوظة أولاً.");
+    return;
+  }
+
+  $("roomCode").value = code;
+  connectRoom();
+};
+
+
+// ========================================
+// 7. تنسيق التواريخ والمدد
+// ========================================
+
+function formatDate(timestamp) {
+  if (!timestamp) return "غير محدد";
+
+  return new Date(timestamp).toLocaleString("ar-EG", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+}
+
+function formatElapsed(timestamp) {
+  const diff = Math.max(0, Date.now() - timestamp);
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff % 86400000 / 3600000);
+  const minutes = Math.floor(diff % 3600000 / 60000);
+
+  if (days > 0) {
+    return days + " يوم و" + hours + " ساعة";
+  }
+
+  if (hours > 0) {
+    return hours + " ساعة و" + minutes + " دقيقة";
+  }
+
+  return minutes + " دقيقة";
+}
+
+function formatDuration(milliseconds) {
+  const diff = Math.max(0, milliseconds);
+
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor(diff % 86400000 / 3600000);
+  const minutes = Math.floor(diff % 3600000 / 60000);
+
+  if (days > 0) {
+    return days + " يوم و" + hours + " ساعة";
+  }
+
+  if (hours > 0) {
+    return hours + " ساعة و" + minutes + " دقيقة";
+  }
+
+  return minutes + " دقيقة";
+}
+
+function createTextElement(tag, text, className = "") {
+  const element = document.createElement(tag);
+  element.textContent = text;
+
+  if (className) {
+    element.className = className;
+  }
+
+  return element;
+}
+
+
+// ========================================
+// 8. عرض الأمنيات
+// ========================================
+
+function renderWishes() {
+  $("wishes").replaceChildren();
+
+  if (!data.wishes.length) {
+    $("wishes").append(
+      createTextElement("p", "لا توجد أمنيات بعد.", "note")
+    );
+
+    return;
+  }
+
+  [...data.wishes]
+    .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
+    .forEach(w => {
+
+      const el = document.createElement("div");
+      el.className = "entry";
+
+      const p = createTextElement("p", w.text || "");
+
+      const small = createTextElement(
+        "small",
+        "بواسطة " + (w.author || "بدون اسم") +
+        " • " + formatDate(w.createdAt)
+      );
+
+      const status = w.status || "pending";
+
+      let statusText = "⏳ قيد الانتظار";
+      let statusClass = "wish-pending";
+
+      if (status === "achieved") {
+        statusText = "💚 تم تحقيق الأمنية";
+        statusClass = "wish-achieved";
+      } else if (status === "not-achieved") {
+        statusText = "❤️ لم تتحقق الأمنية";
+        statusClass = "wish-not-achieved";
+      }
+
+      const statusElement = createTextElement(
+        "span",
+        statusText,
+        "wish-status " + statusClass
+      );
+
+      const actions = document.createElement("div");
+      actions.className = "wish-actions";
+
+      const achieved = createTextElement("button", "💚 تحققت", "wish-green");
+      achieved.onclick = () => setWishStatus(w.id, "achieved");
+
+      const notAchieved = createTextElement("button", "❤️ لم تتحقق", "wish-red");
+      notAchieved.onclick = () => setWishStatus(w.id, "not-achieved");
+
+      const reset = createTextElement("button", "إعادة الانتظار", "wish-reset");
+      reset.onclick = () => setWishStatus(w.id, "pending");
+
+      actions.append(achieved, notAchieved, reset);
+
+      el.append(p, small, statusElement, actions);
+      $("wishes").append(el);
+    });
+}
+
+
+// ========================================
+// 9. عرض الخلافات وسجل التعديلات
+// ========================================
+
+function renderConflicts() {
+  $("conflicts").replaceChildren();
+
+  $("conflictCount").textContent =
+    data.conflicts.length.toLocaleString("ar-EG");
+
+  if (!data.conflicts.length) {
+    $("conflicts").append(
+      createTextElement("p", "لا توجد خلافات مسجلة.", "note")
+    );
+
+    return;
+  }
+
+  [...data.conflicts]
+    .sort((a, b) => (b.at || 0) - (a.at || 0))
+    .forEach(c => {
+
+      const el = document.createElement("div");
+      el.className = "entry";
+
+      const isClosed = c.status === "closed";
+
+      const p = createTextElement(
+        "p",
+        c.note || "خلاف مسجل"
+      );
+
+      if (isClosed) {
+        p.className = "conflict-resolved";
+      }
+
+      const author = createTextElement(
+        "small",
+        "✍️ الكاتب: " + (c.author || "بدون اسم")
+      );
+
+      const startDate = createTextElement(
+        "small",
+        "📅 تاريخ البداية: " + formatDate(c.at),
+        "conflict-details"
+      );
+
+      const status = createTextElement(
+        "span",
+        isClosed ? "✓ خلاف منتهٍ" : "⏳ خلاف مستمر",
+        "conflict-status " +
+        (isClosed ? "conflict-closed" : "conflict-open")
+      );
+
+      el.append(p, author, startDate, status);
+
+      // تاريخ النهاية أو المدة الحالية
+
+      if (isClosed && c.endedAt) {
+
+        el.append(
+          createTextElement(
+            "small",
+            "🏁 تاريخ النهاية: " + formatDate(c.endedAt),
+            "conflict-details"
+          ),
+
+          createTextElement(
+            "small",
+            "⏱️ مدة الخلاف: " +
+            formatDuration(c.endedAt - c.at),
+            "conflict-details"
+          )
+        );
+
+      } else {
+
+        el.append(
+          createTextElement(
+            "small",
+            "⏱️ مدة الخلاف حتى الآن: " +
+            formatElapsed(c.at || Date.now()),
+            "conflict-details"
+          )
+        );
+      }
+
+      // زر تعديل الوصف
+
+      const editButton = createTextElement(
+        "button",
+        "✏️ تعديل التفاصيل",
+        "edit-button"
+      );
+
+      editButton.onclick = () => editConflict(c.id);
+
+      el.append(editButton);
+
+      // زر إنهاء الخلاف
+
+      if (!isClosed) {
+        const resolveButton = createTextElement(
+          "button",
+          "إنهاء الخلاف ✓",
+          "resolve-button"
+        );
+
+        resolveButton.onclick = () => resolveConflict(c.id);
+
+        el.append(resolveButton);
+      }
+
+      // سجل التعديلات
+
+      const edits = Array.isArray(c.edits) ? c.edits : [];
+
+      if (edits.length) {
+
+        const history = document.createElement("div");
+        history.className = "history";
+
+        history.append(
+          createTextElement(
+            "div",
+            "📋 سجل تعديلات هذا الخلاف",
+            "history-title"
+          )
+        );
+
+        [...edits]
+          .sort((a, b) => (b.editedAt || 0) - (a.editedAt || 0))
+          .forEach(edit => {
+
+            const item = document.createElement("div");
+            item.className = "history-item";
+
+            item.append(
+              createTextElement(
+                "div",
+                "👤 المعدِّل: " + (edit.editor || "غير محدد")
+              ),
+
+              createTextElement(
+                "small",
+                "🕒 وقت التعديل: " + formatDate(edit.editedAt)
+              ),
+
+              createTextElement(
+                "div",
+                "الوصف السابق:"
+              ),
+
+              createTextElement(
+                "div",
+                edit.oldNote || "لا يوجد وصف سابق",
+                "old-text"
+              ),
+
+              createTextElement(
+                "div",
+                "الوصف بعد التعديل:"
+              ),
+
+              createTextElement(
+                "div",
+                edit.newNote || "",
+                "new-text"
+              )
+            );
+
+            history.append(item);
+          });
+
+        el.append(history);
+      }
+
+      $("conflicts").append(el);
+    });
+}
+
+
+// ========================================
+// 10. العرض العام
+// ========================================
+
+function render() {
+  renderWishes();
+  renderConflicts();
+}
+
+
+// ========================================
+// 11. مرجع مساحة Firebase
+// ========================================
+
+function getRoomRef() {
+  if (!db || !room) {
+    throw new Error("لا توجد مساحة متصلة.");
+  }
+
+  return doc(db, "rooms", room);
+}
+
+
+// ========================================
+// 12. حفظ عنصر جديد
+// ========================================
+
+async function saveEntry(collection, entry) {
+
+  if (!connected || !db || !room) {
+    alert("اتصل بالمساحة المشتركة أولاً حتى تتم مزامنة البيانات.");
+    return false;
+  }
+
+  try {
+
+    await updateDoc(
+      getRoomRef(),
+      {
+        [collection]: arrayUnion(entry)
+      }
+    );
+
+    setStatus("تم الحفظ والمزامنة بنجاح ❤️");
+
+    return true;
+
+  } catch (error) {
+
+    console.error("Cloud save error:", error);
+
+    setStatus("تعذر الحفظ السحابي. تحقق من الاتصال.");
+
+    alert("لم يتم حفظ البيانات سحابيًا. حاول مرة أخرى.");
+
+    return false;
+  }
+}
+
+
+// ========================================
+// 13. إضافة أمنية
+// ========================================
+
+window.addWish = async function() {
+
+  const text = $("wishText").value.trim();
+  const author = $("wishAuthor").value.trim();
+
+  if (!text || !author) {
+    alert("اكتب الأمنية واسم صاحبها أولاً ❤️");
+    return;
+  }
+
+  const button = $("addWishBtn");
+  button.disabled = true;
+
+  try {
+
+    const wish = {
+      id: crypto.randomUUID(),
+      text,
+      author,
+      createdAt: Date.now(),
+      status: "pending"
+    };
+
+    const success = await saveEntry("wishes", wish);
+
+    if (success) {
+      $("wishText").value = "";
+    }
+
+  } finally {
+    button.disabled = false;
+  }
+};
+
+
+// ========================================
+// 14. تغيير حالة الأمنية
+// ========================================
+
+window.setWishStatus = async function(id, status) {
+
+  const allowed = [
+    "pending",
+    "achieved",
+    "not-achieved"
+  ];
+
+  if (!allowed.includes(status)) return;
+
+  if (!connected) {
+    alert("اتصل بالمساحة أولاً لتحديث الحالة ومزامنتها.");
+    return;
+  }
+
+  try {
+
+    await runTransaction(db, async transaction => {
+
+      const ref = getRoomRef();
+      const snapshot = await transaction.get(ref);
+
+      if (!snapshot.exists()) {
+        throw new Error("المساحة غير موجودة.");
+      }
+
+      const remoteData = normalizeData(snapshot.data());
+
+      const updatedWishes = remoteData.wishes.map(w => {
+        if (w.id === id) {
+          return { ...w, status };
+        }
+
+        return w;
+      });
+
+      transaction.update(ref, {
+        wishes: updatedWishes
+      });
+
+    });
+
+    setStatus("تم تحديث حالة الأمنية ومزامنتها ❤️");
+
+  } catch (error) {
+
+    console.error(error);
+    alert("تعذر تحديث حالة الأمنية.");
+  }
+};
+
+
+// ========================================
+// 15. إضافة خلاف جديد
+// ========================================
+
+window.addConflict = async function() {
+
+  const author = $("conflictAuthor").value.trim();
+  const date = $("conflictDate").value;
+  const note = $("conflictNote").value.trim();
+
+  if (!author || !date || !note) {
+    alert("اكتب اسم الكاتب وتاريخ الخلاف وسببه.");
+    return;
+  }
+
+  const at = new Date(date).getTime();
+
+  if (!Number.isFinite(at) || at > Date.now()) {
+    alert("تاريخ بداية الخلاف غير صحيح.");
+    return;
+  }
+
+  const button = $("addConflictBtn");
+  button.disabled = true;
+
+  try {
+
+    const conflict = {
+      id: crypto.randomUUID(),
+      author,
+      note,
+      at,
+      status: "open",
+      endedAt: null,
+      edits: []
+    };
+
+    const success = await saveEntry("conflicts", conflict);
+
+    if (success) {
+      $("conflictNote").value = "";
+    }
+
+  } finally {
+    button.disabled = false;
+  }
+};
+
+
+// ========================================
+// 16. تعديل وصف الخلاف وتوثيق التعديل
+// ========================================
+
+window.editConflict = async function(id) {
+
+  if (!connected || !db || !room) {
+    alert("اتصل بالمساحة المشتركة أولاً لتعديل الخلاف ومزامنة سجل التعديلات.");
+    return;
+  }
+
+  const conflict = data.conflicts.find(c => c.id === id);
+
+  if (!conflict) {
+    alert("الخلاف غير موجود.");
+    return;
+  }
+
+  const editor = prompt(
+    "اكتب اسم الشخص الذي يقوم بالتعديل:"
+  );
+
+  if (editor === null) return;
+
+  if (!editor.trim()) {
+    alert("يجب كتابة اسم المعدِّل.");
+    return;
+  }
+
+  const newNote = prompt(
+    "اكتب الوصف الجديد للخلاف:",
+    conflict.note || ""
+  );
+
+  if (newNote === null) return;
+
+  if (!newNote.trim()) {
+    alert("لا يمكن ترك وصف الخلاف فارغًا.");
+    return;
+  }
+
+  if (newNote.trim() === (conflict.note || "")) {
+    alert("لم يتم تغيير الوصف.");
+    return;
+  }
+
+  const editRecord = {
+    id: crypto.randomUUID(),
+    editor: editor.trim(),
+    editedAt: Date.now()
+  };
+
+  try {
+
+    await runTransaction(db, async transaction => {
+
+      const ref = getRoomRef();
+      const snapshot = await transaction.get(ref);
+
+      if (!snapshot.exists()) {
+        throw new Error("المساحة غير موجودة.");
+      }
+
+      const remoteData = normalizeData(snapshot.data());
+
+      let found = false;
+
+      const updatedConflicts = remoteData.conflicts.map(c => {
+
+        if (c.id !== id) return c;
+
+        found = true;
+
+        const previousNote = c.note || "";
+
+        const oldEdits = Array.isArray(c.edits)
+          ? c.edits
+          : [];
+
+        const newEdit = {
+          ...editRecord,
+          oldNote: previousNote,
+          newNote: newNote.trim()
+        };
+
+        return {
+          ...c,
+          note: newNote.trim(),
+          edits: [...oldEdits, newEdit]
+        };
+      });
+
+      if (!found) {
+        throw new Error("لم يتم العثور على الخلاف.");
+      }
+
+      transaction.update(ref, {
+        conflicts: updatedConflicts
+      });
+
+    });
+
+    setStatus("تم تعديل وصف الخلاف وحفظ سجل التعديل ومزامنته ❤️");
+
+  } catch (error) {
+
+    console.error("Edit conflict error:", error);
+
+    setStatus("تعذر تعديل الخلاف.");
+
+    alert(
+      "لم نتمكن من حفظ التعديل. تحقق من الاتصال وحاول مرة أخرى."
+    );
+  }
+};
+
+
+// ========================================
+// 17. إنهاء الخلاف
+// ========================================
+
+window.resolveConflict = async function(id) {
+
+  if (!connected) {
+    alert("اتصل بالمساحة المشتركة أولاً.");
+    return;
+  }
+
+  const confirmed = confirm(
+    "هل انتهى هذا الخلاف بالفعل؟ سيتم تسجيل تاريخ ووقت النهاية."
+  );
+
+  if (!confirmed) return;
+
+  try {
+
+    const endedAt = Date.now();
+
+    await runTransaction(db, async transaction => {
+
+      const ref = getRoomRef();
+      const snapshot = await transaction.get(ref);
+
+      if (!snapshot.exists()) {
+        throw new Error("المساحة غير موجودة.");
+      }
+
+      const remoteData = normalizeData(snapshot.data());
+
+      const updatedConflicts = remoteData.conflicts.map(c => {
+
+        if (c.id === id && c.status !== "closed") {
+          return {
+            ...c,
+            status: "closed",
+            endedAt
+          };
+        }
+
+        return c;
+      });
+
+      transaction.update(ref, {
+        conflicts: updatedConflicts
+      });
+
+    });
+
+    setStatus("تم إنهاء الخلاف وتسجيل تاريخ النهاية ومزامنته ❤️");
+
+  } catch (error) {
+
+    console.error("Resolve conflict error:", error);
+
+    alert("تعذر إنهاء الخلاف. حاول مرة أخرى.");
+  }
+};
+
+
+// ========================================
+// 18. الاتصال بمساحة أو إنشاء مساحة جديدة
+// ========================================
+
+window.connectRoom = async function() {
+
+  if (connecting) return;
+
+  const code = $("roomCode").value.trim();
+
+  if (!code) {
+    alert("اكتب رمز المساحة أولاً.");
+    return;
+  }
+
+  if (!db || !auth || !auth.currentUser) {
+    alert("Firebase غير جاهز.");
+    return;
+  }
+
+  if (code.length < 12) {
+    alert("استخدم رمزًا لا يقل عن 12 حرفًا أو رقمًا.");
+    return;
+  }
+
+  connecting = true;
+
+  const button = $("connectBtn");
+  button.disabled = true;
+
+  setStatus("جاري الاتصال بالمساحة...");
+
+  try {
+
+    if (unsubscribe) {
+      unsubscribe();
+      unsubscribe = null;
+    }
+
+    connected = false;
+    room = code;
+
+    // تحميل نسخة هذه المساحة فقط
+
+    loadLocalForRoom(code);
+
+    const ref = getRoomRef();
+
+    // إنشاء المساحة إذا لم تكن موجودة
+
+    await runTransaction(db, async transaction => {
+
+      const snapshot = await transaction.get(ref);
+
+      if (!snapshot.exists()) {
+
+        transaction.set(ref, {
+          wishes: [],
+          conflicts: [],
+          createdAt: Date.now()
+        });
+
+      }
+
+    });
+
+    // حفظ الرمز على الجهاز
+
+    saveRoomCode(code);
+
+    // استقبال تحديثات الهاتف الآخر
+
+    unsubscribe = onSnapshot(
+      ref,
+
+      snapshot => {
+
+        if (!snapshot.exists()) {
+          connected = false;
+          setStatus("المساحة غير موجودة.");
+          return;
+        }
+
+        data = normalizeData(snapshot.data());
+
+        saveLocal();
+        render();
+
+        connected = true;
+
+        setStatus(
+          "🟢 متصل بالمساحة: " + room +
+          " | المزامنة مفعّلة بين الهاتفين ❤️"
+        );
+
+      },
+
+      error => {
+
+        console.error("Snapshot error:", error);
+
+        connected = false;
+
+        setStatus(
+          "انقطع الاتصال. تحقق من الإنترنت وصلاحيات Firestore."
+        );
+
+      }
+    );
+
+  } catch (error) {
+
+    console.error("Connection error:", error);
+
+    connected = false;
+
+    setStatus(
+      "تعذر الاتصال: " + (error.code || error.message)
+    );
+
+    alert(
+      "تعذر الاتصال بالمساحة.\nتحقق من Firebase Authentication وقواعد Firestore."
+    );
+
+  } finally {
+
+    connecting = false;
+    button.disabled = false;
+  }
+};
+
+
+// ========================================
+// 19. بدء التشغيل
+// ========================================
+
+function setDefaultConflictDate() {
+
+  const localDate = new Date(
+    Date.now() - new Date().getTimezoneOffset() * 60000
+  );
+
+  $("conflictDate").value =
+    localDate.toISOString().slice(0, 16);
+}
+
+setDefaultConflictDate();
+
+refreshSavedRooms();
+
+render();
+
+try {
+
+  const app = initializeApp(firebaseConfig);
+
+  auth = getAuth(app);
+  db = getFirestore(app);
+
+  setStatus("جاري تسجيل الدخول إلى Firebase...");
+
+  await signInAnonymously(auth);
+
+  // ترحيل رمز المساحة القديمة إن وجد
+
+  const oldRoom = localStorage.getItem(ACTIVE_ROOM_KEY);
+  const savedRooms = getSavedRooms();
+
+  if (oldRoom && !savedRooms.includes(oldRoom)) {
+    saveRoomCode(oldRoom);
+  }
+
+  refreshSavedRooms();
+
+  // الاتصال تلقائيًا بآخر مساحة
+
+  const savedRoom = localStorage.getItem(ACTIVE_ROOM_KEY);
+
+  if (savedRoom) {
+
+    $("roomCode").value = savedRoom;
+
+    await window.connectRoom();
+
+  } else {
+
+    setStatus(
+      "🟢 تم الاتصال بـ Firebase. أدخل رمز المساحة أو أنشئ مساحة جديدة."
+    );
+
+  }
+
+} catch (error) {
+
+  console.error("Firebase startup error:", error);
+
+  setStatus(
+    "تعذر تشغيل Firebase: " +
+    (error.code || error.message)
+  );
+
+}
+
+</script>
+
+</body>
+</html>
